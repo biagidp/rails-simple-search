@@ -85,7 +85,7 @@ module RailsSimpleSearch
       elsif operator
         verb = operator
       elsif column.text? && ! @config[:exact_match].include?((@table_name == table)? field : key)
-        verb = 'like'
+        verb = 'ILIKE'
         value = "%#{value}%"
       else
         verb = '='
